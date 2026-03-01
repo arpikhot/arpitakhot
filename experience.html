@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experience Section</title>
+
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0a0a0a;
+  --border: #2a2a2a;
+  --text: #e8e8e8;
+  --text-dim: #888888;
+  --accent: #00ff88;
+  --accent-glow: rgba(0, 255, 136, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Bricolage Grotesque', sans-serif;
+  padding: 4rem 2rem;
+}
+
+/* Animated grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.3;
+  z-index: -1;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(50px,50px); }
+}
+
+/* SECTION HEADER */
+.section-title {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.section-title::before {
+  content: "//";
+  color: var(--text-dim);
+}
+
+.section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), transparent);
+}
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  padding-left: 3rem;
+  max-width: 900px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
+
+.item {
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: 0.5rem;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* HEADER ROW */
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.company {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+.meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+}
+
+/* BULLETS */
+.bullets {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+.bullets li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.6rem;
+  color: rgba(232,232,232,0.6);
+}
+
+.bullets li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .timeline {
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    left: 0.6rem;
+  }
+
+  .item::before {
+    left: -1.4rem;
+  }
+
+  .role {
+    font-size: 1.1rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="section-title">EXPERIENCE</div>
+
+<div class="timeline">
+
+  <div class="item">
+    <div class="item-header">
+      <div class="role">
+        iOS Developer · <span class="company">iConsult Collaborative</span>
+      </div>
+      <div class="meta">Mar 2025 - Present · Syracuse, NY</div>
+    </div>
+    <ul class="bullets">
+      <li>Delivered production iOS features in Agile sprints with iterative releases</li>
+      <li>Integrated REST APIs and built reusable UI components for consistent performance</li>
+      <li>Improved reliability via code reviews, unit testing, and stable deployments</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="role">
+        Android Developer Intern · <span class="company">JustJobsHR</span>
+      </div>
+      <div class="meta">May 2024 - Jul 2024</div>
+    </div>
+    <ul class="bullets">
+      <li>Built Android job-search app with Java, Android Studio, SQL, and REST APIs</li>
+      <li>Improved responsiveness by 22% through UI optimization and data fetch logic</li>
+      <li>Streamlined API calls with caching and added integration tests for stability</li>
+    </ul>
+  </div>
+
+  <div class="item">
+    <div class="item-header">
+      <div class="role">
+        AI/ML Engineer · <span class="company">Lawyantra</span>
+      </div>
+      <div class="meta">Dec 2023 - May 2024</div>
+    </div>
+    <ul class="bullets">
+      <li>Built Python + LLM legal search engine with fast retrieval workflows</li>
+      <li>Optimized backend pipelines improving throughput and latency for production</li>
+      <li>Automated evaluation improving accuracy by 18%, cutting test cycles by 30%</li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>
